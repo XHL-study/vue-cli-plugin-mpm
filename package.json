@@ -1,0 +1,5 @@
+{
+	"name": "vue-cli-plugin-mpm",
+	"version": "0.0.1",
+	"description": "vue-cli plugin to add mpm (multi project manage )"
+}
