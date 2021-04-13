@@ -2,10 +2,9 @@ const path = require('path');
 const ConsoleColorsUtil = require('../util/console-colors.js');
 
 const customConfig = require(path.join(process.cwd(),'mpm.config.js'));
-const template = require('../template/_index.js');
 module.exports = {
 	projectDir: customConfig.projectDir || 'src/projects', //子项目管理路径
-	templateDir: template.templateDir,
+	templateDir: customConfig.templateDir || '../template',//模板地址
 	getProjectName() {
 		return this.getProcessArgv(3, 1);
 	},
