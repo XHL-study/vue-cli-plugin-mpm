@@ -7,7 +7,6 @@ module.exports = (api, options) => {
 		options.outputDir = config.getOutputDir();
 		options.devServer.host = config.getHost();
 		options.devServer.port = config.getPort();
-		console.log(config.getPort())
 	} else
 		registerCommand(api);
 }
