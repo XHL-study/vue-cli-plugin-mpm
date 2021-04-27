@@ -4,6 +4,17 @@ const ConsoleColorsUtil = require('./console-colors.js');
 
 module.exports = {
 	copyAll(sourceDir, toDir, filters = ['_index.js']) {
+		//初始化项目目录
+		fs.mkdir(toDir, {
+			recursive: true
+		}, (err) => {
+			if (err) {
+				console.log(ConsoleColorsUtil.red, `mkDir err ${toDir} ${err}`);
+			} else {
+				console.error(ConsoleColorsUtil.green, `mkDir success ${toDir}`);
+			}
+		});
+		//复制模板文件
 		mkDirAndFiles(sourceDir, toDir, filters);
 	},
 }
@@ -29,25 +40,31 @@ function mkDirAndFiles(fromDir, toDir, filters) {
 					recursive: true
 				}, (err) => {
 					if (err) {
-						console.log(ConsoleColorsUtil.red, `mkDir err ${toDir}\\${item.name} ${err}`)
+						console.log(ConsoleColorsUtil.red,
+							`mkDir err ${toDir}\\${item.name} ${err}`)
 					} else {
-						console.error(ConsoleColorsUtil.green, `mkDir success ${toDir}\\${item.name}`)
+						console.error(ConsoleColorsUtil.green,
+							`mkDir success ${toDir}\\${item.name}`)
 						mkDirAndFiles(cfd, ctd, filters);
 					}
 				});
 			} else if (item.isFile()) {
 				fs.copyFile(cfd, ctd, (err) => {
 					if (err)
-						console.error(`copyFile err ${fromDir}\\${item.name} ==> ${toDir}\\${item.name}  ${err}`)
+						console.error(
+							`copyFile err ${fromDir}\\${item.name} ==> ${toDir}\\${item.name}  ${err}`
+							)
 					else {
 						writeTIPS();
-						console.error(ConsoleColorsUtil.green, `copyFile success ${toDir}\\${item.name}`)
+						console.error(ConsoleColorsUtil.green,
+							`copyFile success ${toDir}\\${item.name}`)
 					}
 				});
 			}
 		});
 	})
 }
+
 
 let _tim;
 
