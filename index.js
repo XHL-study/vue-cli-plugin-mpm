@@ -8,7 +8,7 @@ module.exports = (api, options) => {
 		//加载 项目vue.config.js
 		options = Object.assign(options, vueOptions); //覆盖 配置项
 
-		//强制覆盖选择
+		//强制覆盖 选项
 		options.pages = config.getPages();
 		options.outputDir = config.getOutputDir();
 		options.devServer.host = config.getHost();
