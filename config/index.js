@@ -73,7 +73,6 @@ module.exports = {
 		return 'dist';
 	},
 	getProcessArgv(index, subStrIndex) {
-		if (process.env.NODE_ENV === 'production') index += 1;
 		return (process.argv[index] || '').substr(subStrIndex);
 	},
 	existsFileSync(file) {
@@ -81,5 +80,17 @@ module.exports = {
 	},
 	path(fileName) {
 		return `${this.projectDir}/${fileName}`;
+	},
+	loadVueConfigOptions() {
+		try {
+			let options = null;
+			const projectName = this.getProjectName();
+			if (projectName) //子项目配置
+				options = require(path.join(process.cwd(),this.path(`${projectName}/vue.config.js`)));
+				console.log('options,',options);
+			return options;
+		} catch (e) {
+			return null;
+		}
 	}
 }

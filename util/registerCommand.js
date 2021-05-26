@@ -2,6 +2,10 @@ const path = require('path');
 const configs = require('../config/index.js');
 const projectUtil = require('./project.js');
 
+/**
+ * @description 创建一个子项目
+ * @param {Object} api
+ */
 function createProjectWithName(api) {
 	api.registerCommand(
 		'mpm-create', {
@@ -17,6 +21,10 @@ function createProjectWithName(api) {
 	)
 }
 
+/**
+ * @description 删除一个子项目 未实现
+ * @param {Object} api
+ */
 function deleteProjectWithName(api) {
 
 }
