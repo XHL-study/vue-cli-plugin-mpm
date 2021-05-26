@@ -86,8 +86,7 @@ module.exports = {
 			let options = null;
 			const projectName = this.getProjectName();
 			if (projectName) //子项目配置
-				options = require(path.join(process.cwd(),this.path(`${projectName}/vue.config.js`)));
-				console.log('options,',options);
+				options = require(path.join(process.cwd(), this.path(`${projectName}/vue.config.js`)));
 			return options;
 		} catch (e) {
 			return null;

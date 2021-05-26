@@ -7,7 +7,7 @@ module.exports = (api, options) => {
 		let vueOptions = config.loadVueConfigOptions();
 		//加载 项目vue.config.js
 		options = Object.assign(options, vueOptions); //覆盖 配置项
-		
+
 		//强制覆盖选择
 		options.pages = config.getPages();
 		options.outputDir = config.getOutputDir();
