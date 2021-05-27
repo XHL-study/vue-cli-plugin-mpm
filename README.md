@@ -11,5 +11,5 @@
  
  2. 其他配置项
 	1. 支持子项目单独配置项
-		1. vue.config.js
-		2. postcss.config.js
+		1. vue.config.js 没有此文件，则使用项目目录下的vue.config.js
+		2. postcss.config.js 同上
