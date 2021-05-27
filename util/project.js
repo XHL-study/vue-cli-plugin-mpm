@@ -10,9 +10,32 @@ module.exports = {
 		FileUtil.copyAll(sourceDir, toDir, filters = ['_index.js']);
 	},
 	remove() {
-
+		
 	},
-	move() {
+	move() {// 移动
+		/**
+		 * chainWebpack: config => {
+			let paths = [];
 
+
+			let timer = null;
+			let debounce = () => {
+				if (timer) clearTimeout(timer);
+
+				timer = setTimeout(() => {
+					console.log('dddd',paths);
+				}, 1500);
+			};
+			config.module
+				.rule('compile')
+				.test((e) => {
+					if (!e.includes('node_modules')) {
+						paths.push(e);
+						debounce();
+					}
+				})
+				.end()
+		},
+		 */
 	}
 }
