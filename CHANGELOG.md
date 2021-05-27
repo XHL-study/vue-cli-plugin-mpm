@@ -1,3 +1,6 @@
+# 0.1.0
+  * Increase usage tutorial
+
 # 0.0.9
   * add some console log description
 
