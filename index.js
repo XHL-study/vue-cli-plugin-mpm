@@ -1,4 +1,5 @@
 const registerCommand = require('./util/registerCommand.js');
+const ConsoleColorUtil = require('./util/console-colors.js');
 
 module.exports = (api, options) => {
 	if (!registerCommand.isFromMPM()) { //运行，编译
@@ -7,7 +8,8 @@ module.exports = (api, options) => {
 		let vueOptions = config.loadVueConfigOptions();
 		//加载 项目vue.config.js
 		options = Object.assign(options, vueOptions); //覆盖 配置项
-
+		
+		console.log(ConsoleColorUtil.yellow,'Mandatory overwrite vue.config.js options [pages,outputDir,devServer.host,devServer.port]');
 		//强制覆盖 选项
 		options.pages = config.getPages();
 		options.outputDir = config.getOutputDir();
