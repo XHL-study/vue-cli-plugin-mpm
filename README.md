@@ -1,3 +1,5 @@
+ * 新增最新版本-> v2 分支
+ 
  * 运行测试
  * use npm run serve -- -[project] -[port] run your project
  
