@@ -1,9 +1,23 @@
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CompressionPlugin = require('compression-webpack-plugin');
-
 module.exports = {
+	devServer: {
+		host: '0.0.0.0',
+		port: 8080,
+		before: app => {},
+		proxy: {
+			'/api': {
+				target: 'http://192.168.3.168:82/',
+				ws: true,
+				changeOrigin: true,
+				pathRewrite: {
+					'^/api': '/api'
+				}
+			},
+		}
+	},
 	chainWebpack: (config) => {
-		//config.plugins.delete('prefetch')
+		config.plugins.delete('prefetch')
 		config.module
 			.rule("images")
 			.use("url-loader")
@@ -42,5 +56,43 @@ module.exports = {
 				})
 			]
 		}
+
+		//分块
+		// config.optimization.splitChunks.cacheGroups = {
+		// 	swiper: {
+		// 		test: /[\\/]swiper[\\/]/,
+		// 		name: 'swiper',
+		// 		chunks: 'all',
+		// 		priority: 0,
+		// 		enforce: true,
+		// 	},
+		// 	vant: {
+		// 		test: /[\\/]vant[\\/]/,
+		// 		name: 'vant',
+		// 		chunks: 'initial',
+		// 		priority: 230,
+		// 		enforce: true,
+		// 	},
+		// 	vue: {
+		// 		test: /[\\/](vue|vuex|vue-lazyload)[\\/]/,
+		// 		name: 'vue',
+		// 		chunks: 'all',
+		// 		priority: 0,
+		// 		enforce: true,
+		// 	},
+		// 	app: {
+		// 		name: 'app',
+		// 		test: /[\\/]node_modules[\\/]/,
+		// 		priority: -10,
+		// 		minChunks: 2,
+		// 		chunks: 'initial',
+		// 	},
+		// 	common: {
+		// 		name: 'chunk-common',
+		// 		priority: -20,
+		// 		minChunks: 2,
+		// 		chunks: 'initial',
+		// 	},
+		// };
 	},
 }
