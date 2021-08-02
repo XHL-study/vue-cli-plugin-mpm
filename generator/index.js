@@ -12,6 +12,7 @@ module.exports = api => {
 			"vant": "^2.12.25",
 			"vue": "^2.6.14",
 			"vue-router": "^3.5.2",
+			"amfe-flexible": "^2.2.1",
 			"vue-template-compiler": "^2.6.14"
 		},
 		devDependencies: {
