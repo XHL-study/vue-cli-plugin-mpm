@@ -16,7 +16,7 @@ module.exports = (api, options) => {
 				`${config.getProjectName()}/.env.${process.env.NODE_ENV}`)), {
 				encoding: 'utf-8'
 			});
-s			// const env = require('qs').parse(envStr,{ delimiter: '\r\n' });
+			// const env = require('qs').parse(envStr,{ delimiter: '\r\n' });
 			// Object.assign(process.env,env);
 			const env = envStr.match(/(.+)=(.+)/ig);
 			env.forEach(itm => {
