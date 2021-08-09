@@ -1,4 +1,5 @@
 const path = require('path');
+const qs = require('qs');
 const ConsoleColorsUtil = require('../util/console-colors.js');
 
 let customConfig;
@@ -11,8 +12,10 @@ const template = require('../template/_index.js');
 module.exports = {
 	projectDir: customConfig.projectDir || 'src/projects', //子项目管理路径
 	templateDir: customConfig.templateDir || template.templateDir, //模板地址
+	projectNameKey: customConfig.projectNameKey || '--project',
+	projectPortKey: customConfig.projectPortKey || '--port',
 	getProjectName() {
-		return this.getProcessArgv(3, 1);
+		return this.getProcessArgv(this.projectNameKey);
 	},
 	getHost() {
 		const IPConfigs = require('os').networkInterfaces();
@@ -28,7 +31,7 @@ module.exports = {
 		return host || 'localhost';
 	},
 	getPort() {
-		return this.getProcessArgv(4, 1) || 8080;
+		return this.getProcessArgv(this.projectPortKey) || 8080;
 	},
 	getPages() {
 		let projectName = this.getProjectName();
@@ -72,8 +75,12 @@ module.exports = {
 			return `dist/${projectName}`;
 		return 'dist';
 	},
-	getProcessArgv(index, subStrIndex) {
-		return (process.argv[index] || '').substr(subStrIndex);
+	getProcessArgv(key) {
+		try {
+			return qs.parse(JSON.parse(process.env.npm_config_argv).original.join('&'))[key];
+		} catch (e) {
+			throw e;
+		}
 	},
 	existsFileSync(file) {
 		return require('fs').existsSync(file);

@@ -5,6 +5,8 @@ module.exports = api => {
 			'mpm-create': 'vue-cli-service mpm-create',
 			// 'mpm-delete': 'vue-cli-service mpm-delete',
 			// 'mpm-move': 'vue-cli-service mpm-move',
+			"test-serve": "vue-cli-service serve --mode test-serve",
+			"test-build": "vue-cli-service build --mode test-build",
 		},
 		dependencies: {
 			"axios": "^0.21.1",
@@ -13,7 +15,8 @@ module.exports = api => {
 			"vue": "^2.6.14",
 			"vue-router": "^3.5.2",
 			"amfe-flexible": "^2.2.1",
-			"vue-template-compiler": "^2.6.14"
+			"vue-template-compiler": "^2.6.14",
+			"qs":"^6.10.1"
 		},
 		devDependencies: {
 			"compression-webpack-plugin": "^5.0.1",

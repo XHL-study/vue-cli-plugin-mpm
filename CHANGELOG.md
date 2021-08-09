@@ -1,3 +1,14 @@
+# 0.1.9
+	```
+	1.更改运行/生产命令	
+	2.增加默认环境配置文件
+	``` 
+ * 运行测试
+ * use npm run serve --project=[project] --port=[port] run your project
+ 
+ * 运行打包
+ * use npm run build --project=[project]
+	
 # 0.1.8
 	```
 	完善默认vue项目配置
