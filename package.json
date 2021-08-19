@@ -2,7 +2,8 @@
 	"auth": "hxl",
 	"description": "vue-cli plugin to add mpm (multi project manage )",
 	"name": "vue-cli-plugin-mpmv2",
-	"version": "0.2.1",
+	"version": "0.2.2",
+	"homepage":"https://github.com/XHL-study/vue-cli-plugin-mpm/tree/v2",
 	"dependencies": {
 	  "qs": "^6.10.1"
 	}

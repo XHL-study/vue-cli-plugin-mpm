@@ -13,3 +13,4 @@
 	1. 支持子项目单独配置项
 		1. vue.config.js 没有此文件，则使用项目目录下的vue.config.js
 		2. postcss.config.js 同上
+		3. 支持.env.[环境名称]配置，必须在项目根目录创建相应的 .env.[环境名称]文件
